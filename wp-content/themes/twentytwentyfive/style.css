@@ -1,0 +1,347 @@
+/*
+Theme Name: Twenty Twenty-Five
+Theme URI: https://wordpress.org/themes/twentytwentyfive/
+Author: the WordPress team
+Author URI: https://wordpress.org
+Description: Twenty Twenty-Five emphasizes simplicity and adaptability. It offers flexible design options, supported by a variety of patterns for different page types, such as services and landing pages, making it ideal for building personal blogs, professional portfolios, online magazines, or business websites. Its templates cater to various blog styles, from text-focused to image-heavy layouts. Additionally, it supports international typography and diverse color palettes, ensuring accessibility and customization for users worldwide.
+Requires at least: 6.7
+Tested up to: 6.7
+Requires PHP: 7.2
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: twentytwentyfive
+Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, accessibility-ready, blog, portfolio, news
+*/
+
+/*
+ * Link styles
+ * https://github.com/WordPress/gutenberg/issues/42319
+ */
+a {
+	text-decoration-thickness: 1px !important;
+	text-underline-offset: .1em;
+}
+
+/* Focus styles */
+:where(.wp-site-blocks *:focus) {
+	outline-width: 2px;
+	outline-style: solid;
+}
+
+/* Increase the bottom margin on submenus, so that the outline is visible. */
+.wp-block-navigation .wp-block-navigation-submenu .wp-block-navigation-item:not(:last-child) {
+	margin-bottom: 3px;
+}
+
+/* Increase the outline offset on the parent menu items, so that the outline does not touch the text. */
+.wp-block-navigation .wp-block-navigation-item .wp-block-navigation-item__content {
+	outline-offset: 4px;
+}
+
+/* Remove outline offset from the submenus, otherwise the outline is visible outside the submenu container. */
+.wp-block-navigation .wp-block-navigation-item ul.wp-block-navigation__submenu-container .wp-block-navigation-item__content {
+	outline-offset: 0;
+}
+
+/*
+ * Progressive enhancement to reduce widows and orphans
+ * https://github.com/WordPress/gutenberg/issues/55190
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+caption,
+figcaption,
+p {
+	text-wrap: pretty;
+}
+
+/*
+ * Change the position of the more block on the front, by making it a block level element.
+ * https://github.com/WordPress/gutenberg/issues/65934
+*/
+.wrap.csv_outer h2 {
+	font-size: 18px;
+	font-weight: 700;
+	color: #2271b1;
+	border-bottom: 1px solid #2271b1;
+	padding-bottom: 18px;
+	margin-bottom: 20px;
+}
+
+.csv_outer .form-table th {
+	padding: 0 0 10px;
+	font-size: 16px;
+}
+
+.csv_outer .form-table td:has(.field) {
+	padding: 0px 0 10px;
+}
+
+.csv_outer .form-table td .field input#file {
+	border: 1px solid #ddd;
+	padding: 15px 15px;
+	color: #2271b1;
+	font-weight: 600;
+}
+
+.csv_outer .form-table td p.description {
+	font-size: 14px;
+	padding: 5px 0 0px;
+	color: #2271b1;
+}
+
+.wrap.csv_outer h2:not(:first-child) {
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+
+.uploaded_doc_outer,
+.document_content_outer,
+.upload_file {
+	padding: 20px;
+	background: #f9f9f9;
+	margin: 10px 0;
+}
+
+#panel {
+	background: #f9f9f9;
+	padding: 15px;
+	border: 1px solid #ddd;
+	margin-top: 10px;
+	line-height: 1.6;
+	color: #333;
+	font-size: 14px;
+	border-radius: 5px;
+}
+
+#flip {
+	padding: 5px;
+	text-align: center;
+	background: #f9f9f9;
+	border: solid 1px #c3c3c3;
+}
+
+.more-link {
+	display: block;
+}
+
+img {
+	max-width: 100%;
+}
+
+#chatbot-icon {
+	background: #fff;
+	display: grid;
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	place-items: center;
+	box-shadow: 0 0 10px #00000033;
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	z-index: 1000;
+	cursor: pointer;
+}
+
+#chatbot-modal {
+	display: none;
+	position: fixed;
+	bottom: 80px;
+	right: 4vw;
+	z-index: 1000;
+	background: white;
+	border: 1px solid rgb(204, 204, 204);
+	border-radius: 10px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
+	max-width: 400px;
+	width: 365px;
+	aspect-ratio: 20 / 25;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+}
+
+
+
+
+div#chatbot-modal {
+	display: none;
+}
+
+#chatbot-icon:hover {
+	box-shadow: 0 0 10px #00000052;
+	background: #f7f7f7;
+	transition: 0.3s;
+}
+
+.wrap.csv_outer h2.main_heading {
+	font-size: 30px;
+	font-weight: 700;
+	color: #2271b1;
+	border-bottom: 1px solid #2271b1;
+	padding-bottom: 18px;
+	margin-bottom: 20px;
+}
+
+.chat_header {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	border-bottom: 1px solid #ddd;
+	gap: 15px;
+}
+
+.chat_header .image {
+	display: flex;
+	width: 40px;
+}
+
+.chat_header .image img,
+.sender_message .sender_image img {
+	border-radius: 50%;
+	aspect-ratio: 1/1;
+	object-position: top center;
+}
+
+.chat_header .name p {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #000;
+}
+
+.sender_message {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	max-width: calc(100% - 40px);
+	flex-wrap: wrap;
+}
+
+.sender_message .message:not(:nth-child(2)) {
+	margin-left: 28px;
+}
+
+.sender_message .sender_image {
+	display: flex;
+	width: 20px;
+}
+
+.sender_message .message {
+	width: calc(100% - 50px);
+}
+
+.sender_message .message {
+	width: calc(100% - 70px);
+	font-size: 14px;
+	font-weight: 400;
+	background: #f1f1f1;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.user_message .message {
+	background: #daf8ff;
+	max-width: 80%;
+	float: right;
+	border-radius: 5px;
+	color: #000;
+	font-size: 15px;
+	font-weight: 400;
+	padding: 5px;
+	width: fit-content;
+}
+
+.user_message {
+	padding: 10px 0;
+	display: flex;
+	justify-content: right;
+	flex-direction: column;
+	gap: 10px;
+	align-items: flex-end;
+}
+
+.chat_inner {
+	padding: 10px;
+	width: 100%;
+}
+
+.chat_footer {
+	padding: 10px;
+	background: #f5f5f5;
+}
+
+.chat_footer .field {
+	display: flex;
+	gap: 10px;
+	width: 100%;
+}
+
+.chat_footer .field .chat_input {
+	min-height: 30px;
+	border-radius: 30px;
+	border: 1px solid #ddd;
+	width: calc(100% - 40px);
+	padding: 0px 12px;
+	max-height: max-content;
+}
+
+.chat_outer {
+	height: 100%;
+}
+
+.chat_footer .field button {
+	width: 30px;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: transparent;
+	display: flex;
+	align-items: center;
+}
+
+.chat_content {
+	display: flex;
+	height: calc(100% - 115px);
+}
+
+.chat_footer .field .chat_input:focus {
+	outline: none;
+}
+
+.sender_message:not(:first-child) {
+	margin-top: 10px;
+}
+
+.chat_content {
+	display: flex;
+	height: calc(100% - 115px);
+	overflow-y: scroll;
+	scrollbar-width: thin;
+	scrollbar-color: #888 #f1f1f1;
+	margin-bottom: 2px;
+}
+
+.chat_content::-webkit-scrollbar {
+	width: 8px;
+}
+
+.chat_content::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+.chat_content::-webkit-scrollbar-thumb {
+	background: #888;
+	border-radius: 10px;
+}
+
+.chat_content::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
